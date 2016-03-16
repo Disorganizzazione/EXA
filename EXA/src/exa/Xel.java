@@ -36,4 +36,18 @@ public class Xel {
         else
             life= true;
     }
+    public void kill(){
+        life= false;
+    }
+    public void move(int axe){
+        
+    }
+    public void redux(){
+        while(E<0 || X<0 || A<0){
+            E++; X++; A++;
+        }
+        while(E>0 && X>0 && A>0){
+            E--; X--; A--;
+        }
+    }
 }
