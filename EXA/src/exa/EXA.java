@@ -4,7 +4,7 @@ import java.util.*;
 public class EXA {
 
     public static void main(String[] args) {
-        Hex agonal= new Hex(2);
+        Hex agonal= new Hex(1);
         agonal.test();
         Xel io= agonal.origin;
         Scanner input= new Scanner(System.in);

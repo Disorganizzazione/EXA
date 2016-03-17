@@ -38,30 +38,37 @@ public class Xel {
 
     public Xel link(int axe){
         switch(axe){
+            
+            //primo passo
             case 0:
-                w= new Xel(this); w.x= this; w.X--; w.redux(); return w; //primo passo
-            case 4: 
-                a= new Xel(this); a.d= this; a.A++; a.redux(); //collegamento principale
-                a.e= w; w.z= a; return a; //collegamento secondario(magico)
-            case 2:
-                x= new Xel(this); x.w= this; x.X++; x.redux(); //collegamento principale
-                x.a= z; z.d= x; return x; //collegamento secondario(magico)
-            case -1:
-                e= new Xel(this); e.z= this; e.E++; e.redux(); //collegamento principale
-                e.x= d; d.w= e; return e; //collegamento secondario(magico)            
+                e= new Xel(this); e.z= this; e.E++; return e;
+            
+            //due legami
             case 1:
-                d= new Xel(this); d.a= this; d.A--; d.redux(); //collegamento principale
-                d.z= x; x.e= d; return d; //collegamento secondario(magico)
-            case -2:
-                w= new Xel(this); w.x= this; w.X--; w.redux(); //collegamento principale
-                w.d= e; e.a= w; return w;//collegamento secondario(magico)            
+                d= new Xel(this); d.a= this; d.A--;
+                d.z= x; x.e= d; return d;
+            case 2:
+                x= new Xel(this); x.w= this; x.X++;
+                x.a= z; z.d= x; return x;
             case 3:
-                z= new Xel(this); z.e= this; z.E--; z.redux(); //collegamento principale
-                z.w= a; a.x= z; return z; //collegamento secondario(magico)
+                z= new Xel(this); z.e= this; z.E--;
+                z.w= a; a.x= z; return z;
+            case 4: 
+                a= new Xel(this); a.d= this; a.A++;
+                a.e= w; w.z= a; return a;
             case 5:
-                w= new Xel(this); w.x= this; w.X--; w.redux(); //collegamento principale
-                w.d= e; e.a= w; //collegamento secondario(magico)   
-                w.e= e.w; e.w.z= w; return w;
+                w= new Xel(this); w.x= this; w.X--;
+                w.d= e; e.a= w; return w;           
+            case 6:
+                e= new Xel(this); e.z= this; e.E++;
+                e.x= d; d.w= e; return e;
+            
+            //tre legami
+            case 15:
+                e= new Xel(this); e.z= this; e.E++;
+                e.x= d; d.w= e;
+                e.d= d.e; d.e.a= e; return e;
+            
             default: System.out.println("Nope"); return null;
         }
     }
