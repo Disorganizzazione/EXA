@@ -36,12 +36,4 @@ public class Hex {
         this.range= range;
         //controlli sul range
     }
-
-    public void test(){
-        Xel temp= origin;
-        for(int i= 0; i<range ;i++){
-            System.out.println(temp.E+" "+temp.X+" "+temp.A);
-            temp= temp.w;
-        }
-    }
 }

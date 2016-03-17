@@ -64,11 +64,32 @@ public class Xel {
                 e.x= d; d.w= e; return e;
             
             //tre legami
+            case 11:
+                x= new Xel(this); x.w= this; x.X++;
+                x.a= z; z.d= x;
+                x.z= z.x; z.x.e= x; return x;
+            case 12:
+                z= new Xel(this); z.e= this; z.E--;
+                z.w= a; a.x= z; 
+                z.a= a.z; a.z.x= z; return z;
+            case 13: 
+                a= new Xel(this); a.d= this; a.A++;
+                a.e= w; w.z= a; 
+                a.w= w.a; w.a.z= a; return a;
+            case 14:
+                w= new Xel(this); w.x= this; w.X--;
+                w.d= e; e.a= w; 
+                w.e= e.w; e.w.a= w; return w;           
             case 15:
                 e= new Xel(this); e.z= this; e.E++;
                 e.x= d; d.w= e;
-                e.d= d.e; d.e.a= e; return e;
-            
+                e.d= d.e; d.e.a= e; 
+                e.d= d.e; d.e.w= e; return e;
+            case 16:
+                d= new Xel(this); d.a= this; d.A--;
+                d.z= x; x.e= d; 
+                d.x= x.d; x.d.e=d; return d;
+              
             default: System.out.println("Nope"); return null;
         }
     }
