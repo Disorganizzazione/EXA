@@ -26,7 +26,7 @@ public class Xel {
         this.A= mother.A;
     }
     
-    public void is(){
+    public void es(){
         if(life)
             life= false;
         else
