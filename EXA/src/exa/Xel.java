@@ -83,7 +83,6 @@ public class Xel {
             case 15:
                 e= new Xel(this); e.z= this; e.E++;
                 e.x= d; d.w= e;
-                e.d= d.e; d.e.a= e; 
                 e.d= d.e; d.e.w= e; return e;
             case 16:
                 d= new Xel(this); d.a= this; d.A--;
