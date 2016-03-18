@@ -1,11 +1,16 @@
 package exa;
 
 public class Xel {
+    
+    //data
     boolean life;
+    
+    //coordinate
     int E;
     int X;
     int A;
     
+    //legami
     Xel w;
     Xel e;
     Xel d;
@@ -26,18 +31,18 @@ public class Xel {
         this.A= mother.A;
     }
     
-    public void es(){
+    public void es(){ //on-off
         if(life)
             life= false;
         else
             life= true;
     }
-    public void kill(){
+    public void kill(){ //off
         life= false;
     }
 
-    public Xel link(int axe){
-        switch(axe){
+    public Xel link(int phase){ //tutti le diverse azioni necessarie alla creazione della rete
+        switch(phase){
             
             //primo passo
             case 0:
@@ -88,31 +93,30 @@ public class Xel {
                 d= new Xel(this); d.a= this; d.A--;
                 d.z= x; x.e= d; 
                 d.x= x.d; x.d.e=d; return d;
-              
-            default: System.out.println("Nope"); return null;
+            default: return null;
         }
     }
-    public void redux(){
+    public void redux(){ //riduce le cordinate alla forma minima
         int redx = 0;
+        //trovo il valore medio tra le coordinate
         if(A<=X && A>=E || A<=E && A>=X)
             redx= A;
         else if(X<=E && X>=A || X<=A && X>=E)
             redx= X;
         else if(E<=A && E>=X || E<=X && E>=A)
             redx= E;
+        //lo porto a zero
         while(redx!=0){
-            if(redx>0){
-                A--;X--;E--;redx--;
-            }
-            else{
-                A++;X++;E++;redx++;
-            }
+            if(redx>0)
+                {A--;X--;E--;redx--;}
+            else
+                {A++;X++;E++;redx++;}
         }
     }
-    public int distance(){
+    public int distance(){ //distanza dall'origine
         return Math.abs(E) + Math.abs(X) + Math.abs(A);
     }
-    public int distance(Xel to){
+    public int distance(Xel to){ //numero minimo di celle tra questa e quella in input
         return Math.abs(E-to.E) + Math.abs(X-to.X) + Math.abs(A-to.A);
     }
 }

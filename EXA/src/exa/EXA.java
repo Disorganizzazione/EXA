@@ -4,7 +4,7 @@ import java.util.*;
 public class EXA {
 
     public static void main(String[] args) {
-        Hex agonal= new Hex(100);
+        Hex agonal= new Hex(10);
         Xel io= agonal.origin;
         Xel center= io;
         Scanner input= new Scanner(System.in);
@@ -24,7 +24,7 @@ public class EXA {
                 case 's': io.es(); break;
                 case 'c': center= io; break;
                 case 'q': return;
-                default: System.out.println("< w,e,d,x,z,a to move, s to set, q to quit >");
+                default: System.out.println("< w,e,d,x,z,a to move, c to center, q to quit >");
             }
             System.out.println();
             io.redux();
