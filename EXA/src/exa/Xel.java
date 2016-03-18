@@ -109,4 +109,10 @@ public class Xel {
             }
         }
     }
+    public int distance(){
+        return Math.abs(E) + Math.abs(X) + Math.abs(A);
+    }
+    public int distance(Xel to){
+        return Math.abs(E-to.E) + Math.abs(X-to.X) + Math.abs(A-to.A);
+    }
 }
