@@ -32,10 +32,7 @@ public class Xel {
     }
     
     public void es(){ //on-off
-        if(life)
-            life= false;
-        else
-            life= true;
+        life = !life;
     }
     public void kill(){ //off
         life= false;
@@ -88,7 +85,7 @@ public class Xel {
             case 15:
                 e= new Xel(this); e.z= this; e.E++;
                 e.x= d; d.w= e;
-                e.d= d.e; d.e.w= e; return e;
+                e.d= d.e; d.e.a= e; return e;
             case 16:
                 d= new Xel(this); d.a= this; d.A--;
                 d.z= x; x.e= d; 
