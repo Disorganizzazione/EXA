@@ -7,34 +7,13 @@ public class EXA {
         Hex agonal= new Hex(5);
         Xel io= agonal.origin;
         Xel center= io;
-        
-        //test
-//        center= center.link(0);
-//        center= center.link(2);
-//        center= center.link(3);
-//        center= center.link(4);
-//        center= center.link(5);
-//        center= center.link(15);
-//        center= center.link(6);
-//        center= center.link(1);
-//        center= center.link(11);
-//        center= center.link(2);
-//        center= center.link(12);
-//        center= center.link(3);
-//        center= center.link(13);
-//        center= center.link(4);
-//        center= center.link(14);
-//        center= center.link(5);
-//        center= center.link(15);
-//        center.link(15);
-//        center= io;
-       //fine test
-        
         Scanner input= new Scanner(System.in);
         String line;
         char in;
         while(true){
-            System.out.print("Location: "+io.E+" "+io.X+" "+io.A+" "+(io.life==true?"[alive]":"[dead]")+" Distance: "+io.distance(center)+"\nInput: ");
+            System.out.print(
+                    "Location: "+io.s.E+" "+io.s.X+" "+io.s.A+" "+(io.life==true?"[alive]":"[dead]")+" Distance: "+io.s.distance(center)+
+                    "\nInput: ");
             line= input.nextLine();
             in= line.equals("")?'\0':line.charAt(0);
             switch(in){
@@ -50,7 +29,7 @@ public class EXA {
                 default: System.out.println("< w,e,d,x,z,a to move, c to center, q to quit >");
             }
             System.out.println();
-            io.redux();
+            io.s.redux();
         }
     }
     
