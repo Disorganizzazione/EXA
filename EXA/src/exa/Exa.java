@@ -2,9 +2,9 @@ package exa;
 
 public class Exa {
     
-    int E;
-    int X;
-    int A;
+    private int E;
+    private int X;
+    private int A;
     
     public Exa(){
         E=0;
@@ -16,13 +16,18 @@ public class Exa {
         X= as.X;
         A= as.A;
     }
-    public Exa(Xel mother){
-        E= mother.s.E;
-        X= mother.s.X;
-        A= mother.s.A;
+    public Exa(int E, int X, int A){
+        this.E= E;
+        this.X= X;
+        this.A= A;
+        redux();
+    }
+
+    static Exa vector(int E, int X, int A){
+        return new Exa(E,X,A);
     }
     
-    public void redux(){ //riduce le cordinate alla forma minima
+    private void redux(){ //riduce le cordinate alla forma minima
         int redx = 0;
         //trovo la coordinata con valore intermedio
         if(E<=A && E>=X || E<=X && E>=A)
@@ -32,20 +37,28 @@ public class Exa {
         else if(A<=X && A>=E || A<=E && A>=X)
             redx= A;
         //la porto a zero
-        while(redx!=0){
-            if(redx>0)
-                {E--;X--;A--;redx--;}
-            else
-                {E++;X++;A++;redx++;}
-        }
+        E-= redx; X-= redx; A-= redx;
     }
-    public int distance(){ //distanza dall'origine
-        return Math.abs(E) + Math.abs(X) + Math.abs(A);
+    
+    public int module(){
+        return Math.abs(E)+ Math.abs(X)+ Math.abs(A);
     }
-    public int distance(Xel to){ //numero minimo di celle tra questa e quella in input
-        return Math.abs(E-to.s.E) + Math.abs(X-to.s.X) + Math.abs(A-to.s.A);
+    public Exa add(Exa s){
+        return new Exa(E+s.E, X+s.X, A+s.A);
     }
-    public void access(int E, int X, int A){
-        //da discutere
+    public Exa inv(){
+        return new Exa(-E,-X,-A);
     }
+    public Exa diff(Exa s){
+        return inv().add(s).inv();
+    }
+    public void w() {X--; redux();}
+    public void e() {E++; redux();}
+    public void d() {A--; redux();}
+    public void x() {X++; redux();}
+    public void z() {E--; redux();}
+    public void a() {A++; redux();}
+    public int getE() {return E;}
+    public int getX() {return X;}
+    public int getA() {return A;}
 }

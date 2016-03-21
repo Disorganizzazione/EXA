@@ -4,15 +4,16 @@ import java.util.*;
 public class EXA {
 
     public static void main(String[] args) {
-        Hex agonal= new Hex(5);
-        Xel io= agonal.origin;
+        Hex agon= new Hex(100);
+        Xel io= agon.origin;
         Xel center= io;
         Scanner input= new Scanner(System.in);
         String line;
         char in;
         while(true){
             System.out.print(
-                    "Location: "+io.s.E+" "+io.s.X+" "+io.s.A+" "+(io.life==true?"[alive]":"[dead]")+" Distance: "+io.s.distance(center)+
+                    "Location: "+io.s.getE()+" "+io.s.getX()+" "+io.s.getA()+" "+(io.getLife()==true?"[alive]":"[dead]")+
+                    " Distance: "+io.s.diff(center.s).module()+
                     "\nInput: ");
             line= input.nextLine();
             in= line.equals("")?'\0':line.charAt(0);
@@ -25,11 +26,11 @@ public class EXA {
                 case 'a': if(io.a!=null)io= io.a;else System.out.println("< Out of range >"); break;
                 case 's': io.es(); break;
                 case 'c': center= io; break;
+                case '\0': agon.act(); break;
                 case 'q': return;
-                default: System.out.println("< w,e,d,x,z,a to move, c to center, q to quit >");
+                default: System.out.println("< w,e,d,x,z,a to move, s to switch, c to center, q to quit >");
             }
             System.out.println();
-            io.s.redux();
         }
     }
     

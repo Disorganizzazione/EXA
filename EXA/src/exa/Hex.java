@@ -14,8 +14,8 @@ public class Hex {
             //primo (small)
             if(r>0){
                 temp= temp.link(6); 
-            for(int l=0; l<r-1; l++)
-                temp= temp.link(16);
+                for(int l=0; l<r-1; l++)
+                    temp= temp.link(16);
             }
             //quattro spicchi
             for(int v= 1; v<=4; v++){ 
@@ -32,9 +32,69 @@ public class Hex {
                 temp= temp.link(15);
         }
     }
-    public Hex(Xel origin, int range){ //cella già esistente come centro
-        this.origin= origin;
-        this.range= range;
-        //controlli sul range...
+    
+    public void act(){
+        Xel temp= origin;
+        for(int r=0; r<range-1; r++){
+            if(r>0){
+                temp= temp.move(6);
+                temp.law();
+                for(int l=0; l<r-1; l++){
+                    temp= temp.move(1);
+                    temp.law();
+                }
+            }
+            for(int v= 1; v<=4; v++){ 
+                if(r==0 && v==1){
+                    temp= temp.move(0);
+                    temp.law();
+                }
+                else{
+                    temp= temp.move(v);
+                    temp.law();
+                }
+                for(int l=0; l<r; l++){
+                    temp= temp.move(v+1);
+                    temp.law();
+                }
+            }
+            temp= temp.move(5);
+            temp.law();
+            for(int l=0; l<r+1; l++){
+                temp= temp.move(6);
+                temp.law();
+            }
+        }
+        temp= origin;
+                for(int r=0; r<range-1; r++){
+            if(r>0){
+                temp= temp.move(6);
+                temp.time();
+                for(int l=0; l<r-1; l++){
+                    temp= temp.move(1);
+                    temp.time();
+                }
+            }
+            for(int v= 1; v<=4; v++){ 
+                if(r==0 && v==1){
+                    temp= temp.move(0);
+                    temp.time();
+                }
+                else{
+                    temp= temp.move(v);
+                    temp.time();
+                }
+                for(int l=0; l<r; l++){
+                    temp= temp.move(v+1);
+                    temp.time();
+                }
+            }
+            temp= temp.move(5);
+            temp.time();
+            for(int l=0; l<r+1; l++){
+                temp= temp.move(6);
+                temp.time();
+            }
+        }
     }
 }
