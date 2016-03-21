@@ -35,6 +35,7 @@ public class Hex {
     
     public void act(){
         Xel temp= origin;
+        temp.law();
         for(int r=0; r<range-1; r++){
             if(r>0){
                 temp= temp.move(6);
@@ -66,6 +67,7 @@ public class Hex {
             }
         }
         temp= origin;
+        temp.time();
                 for(int r=0; r<range-1; r++){
             if(r>0){
                 temp= temp.move(6);
@@ -94,6 +96,40 @@ public class Hex {
             for(int l=0; l<r+1; l++){
                 temp= temp.move(6);
                 temp.time();
+            }
+        }
+    }
+    public void reset(){
+        Xel temp= origin;
+        temp.kill();
+        for(int r=0; r<range-1; r++){
+            if(r>0){
+                temp= temp.move(6);
+                temp.kill();
+                for(int l=0; l<r-1; l++){
+                    temp= temp.move(1);
+                    temp.kill();
+                }
+            }
+            for(int v= 1; v<=4; v++){ 
+                if(r==0 && v==1){
+                    temp= temp.move(0);
+                    temp.kill();
+                }
+                else{
+                    temp= temp.move(v);
+                    temp.kill();
+                }
+                for(int l=0; l<r; l++){
+                    temp= temp.move(v+1);
+                    temp.kill();
+                }
+            }
+            temp= temp.move(5);
+            temp.kill();
+            for(int l=0; l<r+1; l++){
+                temp= temp.move(6);
+                temp.kill();
             }
         }
     }
