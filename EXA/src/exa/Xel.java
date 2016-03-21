@@ -36,6 +36,7 @@ public class Xel {
     }
     public void time(){
         life= after;
+        after= false;
     }
     public Xel link(int phase){ //tutti le diverse azioni necessarie alla creazione della rete
         switch(phase){

@@ -29,7 +29,8 @@ public class EXA {
                 case '\0': agon.act(); break;
                 case 'r': agon.reset(); break;
                 case 'q': return;
-                default: System.out.println("< w,e,d,x,z,a to move, s to switch, c to center, ENTER to activate, r to reset, q to quit >");
+                default: System.out.println(
+                        "< w,e,d,x,z,a to move, s to switch, c to center, ENTER to activate, r to reset, q to quit >");
             }
             System.out.println();
         }
