@@ -31,7 +31,14 @@ public class Xel {
         life= false;
     }
     public void law(){ //propagazione semplice
-        if(w.life || e.life || d.life || x.life || z.life || a.life)
+        int count=0;
+        if(w.getLife() && !w.w.getLife()) count++;
+        if(e.getLife() && !e.e.getLife()) count++;
+        if(d.getLife() && !d.d.getLife()) count++;
+        if(x.getLife() && !x.x.getLife()) count++;
+        if(z.getLife() && !z.z.getLife()) count++;
+        if(a.getLife() && !a.a.getLife()) count++;
+        if(count==2 || count==3)
             after= true;
     }
     public void time(){

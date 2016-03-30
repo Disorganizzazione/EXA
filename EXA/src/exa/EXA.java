@@ -4,7 +4,7 @@ import java.util.*;
 public class EXA {
 
     public static void main(String[] args) {
-        Hex agon= new Hex(100);
+        Hex agon= new Hex(30);
         Xel io= agon.origin;
         Exa center= io.s;
         Scanner input= new Scanner(System.in);
@@ -13,8 +13,9 @@ public class EXA {
         while(true){
             System.out.print(
                     "Location: "+io.s.getE()+" "+io.s.getX()+" "+io.s.getA()+" "+(io.getLife()==true?"[alive]":"[dead]")+
-                    " Distance: "+io.s.diff(center).module()+
-                    "\nInput: ");
+                    " Distance: "+io.s.diff(center).module()+"\n\n" );
+            agon.print();
+            System.out.print("\nInput: ");
             line= input.nextLine();
             in= line.equals("")?'\0':line.charAt(0);
             switch(in){
@@ -32,7 +33,6 @@ public class EXA {
                 default: System.out.println(
                         "< w,e,d,x,z,a to move, s to switch, c to center, ENTER to activate, r to reset, q to quit >");
             }
-            System.out.println();
         }
     }
     

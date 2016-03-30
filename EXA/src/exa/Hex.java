@@ -132,5 +132,30 @@ public class Hex {
                 temp.kill();
             }
         }
+    } 
+    public void print(){
+        
+        int ra= range+1;
+        Exa vector= new Exa(0,-range,0);
+        Xel temp;
+        
+        for(int i= -range; i<=range; ++i){
+            for(int j=0; j<Math.abs(i); j++)
+                System.out.print(" ");
+            temp= origin.access(vector.inv());
+            for(int j=0; j<ra; ++j){
+                System.out.print(temp.getLife()? "o ": ". ");
+                temp= temp.d;
+            }
+            if(i<0){
+                vector.z();
+                ra+=1;
+            }
+            else{
+                vector.x();
+                ra-=1;
+            }
+            System.out.print("\n");
+        }
     }
 }
